@@ -1,0 +1,329 @@
+/* ==============================
+   General Styling
+   ============================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background-color: #f5f9ff;
+
+    color: #0d213f;
+}
+
+
+/* ==============================
+   Login Page
+   ============================== */
+
+.login-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px 20px;
+}
+
+
+/* ==============================
+   Login Card
+   ============================== */
+
+.login-card {
+    width: 100%;
+
+    max-width: 500px;
+
+    background-color: white;
+
+    padding: 40px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ==============================
+   Login Header
+   ============================== */
+
+.login-header {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.login-header h1 {
+    font-size: 30px;
+
+    color: #3685fb;
+
+    margin-bottom: 8px;
+}
+
+.login-header p {
+    font-size: 15px;
+
+    color: #666;
+}
+
+
+/* ==============================
+   Form
+   ============================== */
+
+.login-form {
+    width: 100%;
+}
+
+
+/* ==============================
+   Form Groups
+   ============================== */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #0d213f;
+}
+
+
+/* ==============================
+   Input Fields
+   ============================== */
+
+.form-group input {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    font-size: 15px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 6px;
+
+    background-color: white;
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #3685fb;
+
+    box-shadow:
+        0 0 0 3px rgba(54, 133, 251, 0.12);
+}
+
+.form-group input::placeholder {
+    color: #999;
+}
+
+
+/* ==============================
+   Password Field
+   ============================== */
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 70px;
+}
+
+
+/* Show / Hide Password */
+
+.show-password {
+    position: absolute;
+
+    right: 10px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: none;
+
+    color: #3685fb;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.show-password:hover {
+    color: #216fd9;
+}
+
+
+/* ==============================
+   Forgot Password
+   ============================== */
+
+.forgot-password {
+    text-align: right;
+
+    margin-top: -8px;
+
+    margin-bottom: 25px;
+}
+
+.forgot-password a {
+    color: #3685fb;
+
+    font-size: 13px;
+
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   Buttons
+   ============================== */
+
+.button-group {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.button-group button {
+    min-width: 110px;
+
+    padding: 11px 22px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+/* Login Button */
+
+.login-btn {
+    border: 2px solid #3685fb;
+
+    background-color: #3685fb;
+
+    color: white;
+}
+
+.login-btn:hover {
+    background-color: #216fd9;
+
+    border-color: #216fd9;
+}
+
+
+/* Reset Button */
+
+.reset-btn {
+    border: 2px solid #3685fb;
+
+    background-color: white;
+
+    color: #3685fb;
+}
+
+.reset-btn:hover {
+    background-color: #eef5ff;
+}
+
+
+/* ==============================
+   Sign Up Link
+   ============================== */
+
+.signup-text {
+    text-align: center;
+
+    margin-top: 25px;
+
+    font-size: 14px;
+
+    color: #666;
+}
+
+.signup-text a {
+    color: #3685fb;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   Responsive Design
+   ============================== */
+
+@media (max-width: 600px) {
+
+    .login-page {
+        padding: 20px 15px;
+    }
+
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    .login-header h1 {
+        font-size: 26px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group button {
+        width: 100%;
+    }
+}
