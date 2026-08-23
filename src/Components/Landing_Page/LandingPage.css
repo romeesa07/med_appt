@@ -1,61 +1,145 @@
-* {
+/* ==============================
+   General Styling
+   ============================== */
+
+   * {
     margin: 0;
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
 }
+
+body {
+    background-color: #071426;
+}
+
+
+/* ==============================
+   Hero Section
+   ============================== */
+
 .hero-section {
-    height: 100vh;
-    padding-top: 15rem;
-    background-color: transparent;
-    z-index: -1;
+    min-height: 100vh;
+
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+
+    background-color: #071426;
+
+    position: relative;
+    overflow: hidden;
+
+    z-index: 0;
 }
+
+
+/* ==============================
+   Hero Content
+   ============================== */
+
 .hero-section .flex-hero {
+    display: flex;
+
     flex-direction: column;
+
+    align-items: center;
+
     gap: 30px;
-    text-align:center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
 }
+
+
+/* ==============================
+   Main Heading
+   ============================== */
 
 .hero-section .flex-hero h1 {
     font-size: 65px;
+
     font-weight: 900;
+
+    color: white;
+
+    line-height: 1.3;
+
+    margin: 15px 0;
 }
+
+
+/* ==============================
+   Gradient Text
+   ============================== */
+
 .text-gradient {
-    background: linear-gradient(45deg,#2190FF 2.34%,#b673f8 100.78%);
+    background: linear-gradient(
+        45deg,
+        #2190ff 2.34%,
+        #b673f8 100.78%
+    );
+
     -webkit-background-clip: text;
+
     background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
+
+
+/* ==============================
+   Description
+   ============================== */
+
 .hero-section h4 {
     font-size: 22px;
+
     font-weight: 300;
+
     text-align: center;
+
     padding: 12px 14rem;
-    color:#969BA5;
+
+    color: #c5cfdd;
+
+    line-height: 1.6;
 }
+
+
+/* ==============================
+   Get Started Button
+   ============================== */
 
 .hero-section .button {
     padding: 0.7rem 2rem;
+
     border-radius: 25px;
-    background-color: #2190FF;
+
+    background-color: #2190ff;
+
     color: #fff;
+
     border: 1px solid transparent;
-    width: 15%;
-    margin-top:15px;
+
+    width: 180px;
+
+    margin-top: 15px;
+
+    cursor: pointer;
 }
 
-.hero-section div:nth-child(2) {
-    margin-top: 4rem;
-}
+.hero-section .button:hover {
+    transform: scale(0.98);
 
-.hero-section .image {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0px;
+    background-color: #1678dc;
 }
 
 
-
+/* ==============================
+   General Elements
+   ============================== */
 
 ul {
     list-style: none;
@@ -63,70 +147,16 @@ ul {
 
 a {
     text-decoration: none;
+
     color: #333;
 }
 
 h1,
 h2 {
     line-height: 1.3;
+
     margin: 15px 0;
 }
-
-
-
-button {
-    transition: all 0.5s ease-in-out;
-    font-size: 1em;
-    padding: 1em;
-    width: 100%;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-
-.button:hover {
-    transform: scale(0.98);
-}
-
-
-@media screen and (max-width:980px) {
-    .hero-section h1 {
-        text-align: center;
-    }
-    .hero-section {
-        padding-top: 12rem;
-    }
-    .hero-section h4 {
-        font-size: 21px;
-        text-align: center;
-        padding: 0px 4rem;
-    }
-    .image {
-        width: 500px;
-    }
-    .hero-section .button{
-        margin-top:15px;
-        width: 45%;
-    }
-    
-}
-
-@media screen and (max-width:400px) {
-    .hero-section h1 {
-        font-size: 35px;
-    }
-
-    .hero-section {
-        padding-top: 10rem;
-    }
-    .hero-section h4 {
-        font-size: 16px;
-        padding: 0px 2rem;
-    }
-
-}
-
-
 
 button,
 a,
@@ -134,53 +164,181 @@ li {
     cursor: pointer;
 }
 
-/* Blob */
+button {
+    transition: all 0.5s ease-in-out;
+
+    font-size: 1em;
+}
 
 
-/* Blobs */
+/* ==============================
+   Blobs
+   ============================== */
+
 .flex-hero .blob-cont {
     justify-content: center;
+
     align-items: center;
+
     position: static;
+
     margin: 10px;
 }
 
-
 .blob {
     border-radius: 100px;
+
     filter: blur(60px);
+
+    opacity: 0.45;
 }
 
 .blue {
-    background-color: #2937a392;
+    background-color: #2937a3;
+
     position: absolute;
-    top:0;
+
+    top: 0;
+
     left: 0;
+
     right: 55%;
+
     bottom: 25%;
+
     margin: auto;
+
     height: 150px;
+
     width: 200px;
+
     animation: blobani 8s infinite ease;
 }
+
 .blue1 {
-    background-color: #2937a392;
+    background-color: #2937a3;
+
     position: absolute;
-    top:0;
+
+    top: 0;
+
     left: 0;
+
     right: -55%;
+
     bottom: -25%;
+
     margin: auto;
+
     height: 150px;
+
     width: 200px;
+
     animation: blobani 8s infinite ease;
 }
-  
-  
-  @keyframes blobani {
-    0% {top: 0; left: 0; transform: scale(1);}
-    30% {top: 0; left: 0; transform: scale(1.2);}
-    60% {top: 0; left: 0; transform: scale(1.3);}
-    100% {top: 0; left: 0; transform: scale(1);}
-  }
-  
+
+
+/* ==============================
+   Blob Animation
+   ============================== */
+
+@keyframes blobani {
+
+    0% {
+        top: 0;
+        left: 0;
+        transform: scale(1);
+    }
+
+    30% {
+        top: 0;
+        left: 0;
+        transform: scale(1.2);
+    }
+
+    60% {
+        top: 0;
+        left: 0;
+        transform: scale(1.3);
+    }
+
+    100% {
+        top: 0;
+        left: 0;
+        transform: scale(1);
+    }
+}
+
+
+/* ==============================
+   Responsive Design
+   ============================== */
+
+@media screen and (max-width: 980px) {
+
+    .hero-section {
+        padding-top: 8rem;
+    }
+
+    .hero-section h1 {
+        text-align: center;
+    }
+
+    .hero-section h4 {
+        font-size: 21px;
+
+        text-align: center;
+
+        padding: 0 4rem;
+    }
+
+    .hero-section .button {
+        margin-top: 15px;
+
+        width: 45%;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .hero-section {
+        padding-top: 7rem;
+    }
+
+    .hero-section .flex-hero h1 {
+        font-size: 45px;
+    }
+
+    .hero-section h4 {
+        font-size: 18px;
+
+        padding: 0 2rem;
+    }
+
+    .hero-section .button {
+        width: 55%;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+
+    .hero-section {
+        padding-top: 7rem;
+    }
+
+    .hero-section .flex-hero h1 {
+        font-size: 35px;
+    }
+
+    .hero-section h4 {
+        font-size: 16px;
+
+        padding: 0 1.5rem;
+    }
+
+    .hero-section .button {
+        width: 65%;
+    }
+}

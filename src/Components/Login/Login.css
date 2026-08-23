@@ -2,16 +2,18 @@
    General Styling
    ============================== */
 
-* {
+   * {
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
 }
 
 body {
     font-family: Arial, sans-serif;
 
-    background-color: #f5f9ff;
+    background-color:#071a33;
 
     color: #0d213f;
 }
@@ -28,9 +30,9 @@ body {
 
     justify-content: center;
 
-    align-items: center;
+    align-items: flex-start;
 
-    padding: 40px 20px;
+    padding: 110px 20px 40px;
 }
 
 
@@ -98,6 +100,8 @@ body {
 .form-group label {
     display: block;
 
+    width: 100%;
+
     margin-bottom: 7px;
 
     font-size: 15px;
@@ -105,6 +109,8 @@ body {
     font-weight: 600;
 
     color: #0d213f;
+
+    text-align: left;
 }
 
 
@@ -128,6 +134,8 @@ body {
     outline: none;
 
     transition: 0.3s ease;
+
+    color: #0d213f;
 }
 
 .form-group input:focus {
@@ -155,7 +163,9 @@ body {
 }
 
 
-/* Show / Hide Password */
+/* ==============================
+   Show / Hide Password
+   ============================== */
 
 .show-password {
     position: absolute;
@@ -181,6 +191,21 @@ body {
 
 .show-password:hover {
     color: #216fd9;
+}
+
+
+/* ==============================
+   Error Message
+   ============================== */
+
+.error-message {
+    display: block;
+
+    margin-top: 6px;
+
+    font-size: 12px;
+
+    color: #dc2626;
 }
 
 
@@ -242,7 +267,9 @@ body {
 }
 
 
-/* Login Button */
+/* ==============================
+   Login Button
+   ============================== */
 
 .login-btn {
     border: 2px solid #3685fb;
@@ -259,7 +286,9 @@ body {
 }
 
 
-/* Reset Button */
+/* ==============================
+   Reset Button
+   ============================== */
 
 .reset-btn {
     border: 2px solid #3685fb;
@@ -308,7 +337,7 @@ body {
 @media (max-width: 600px) {
 
     .login-page {
-        padding: 20px 15px;
+        padding: 95px 15px 30px;
     }
 
     .login-card {
