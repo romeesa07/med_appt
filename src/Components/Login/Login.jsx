@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { API_URL } from "../../config";
 import "./Login.css";
 
 const Login = () => {
@@ -11,6 +12,16 @@ const Login = () => {
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
 
+  const navigate = useNavigate();
+
+  // Check if user is already logged in
+  useEffect(() => {
+    if (sessionStorage.getItem("auth-token")) {
+      navigate("/");
+    }
+  }, [navigate]);
+
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -25,6 +36,7 @@ const Login = () => {
     });
   };
 
+  // Validate login form
   const validateForm = () => {
     const newErrors = {};
 
@@ -47,14 +59,62 @@ const Login = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  // Login function - connects React frontend to backend
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (validateForm()) {
-      alert("Login successful!");
+    if (!validateForm()) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      const json = await response.json();
+
+      if (json.authtoken) {
+        // Store authentication information
+        sessionStorage.setItem("auth-token", json.authtoken);
+        sessionStorage.setItem("email", formData.email);
+
+        // Redirect to home page
+        navigate("/");
+        window.location.reload();
+      } else {
+        // Display backend error
+        if (json.errors) {
+          const backendErrors = {};
+
+          for (const error of json.errors) {
+            backendErrors.general = error.msg;
+          }
+
+          setErrors(backendErrors);
+        } else {
+          setErrors({
+            general: json.error || "Invalid email or password.",
+          });
+        }
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+
+      setErrors({
+        general: "Unable to connect to the server. Please try again.",
+      });
     }
   };
 
+  // Reset form
   const handleReset = () => {
     setFormData({
       email: "",
@@ -64,6 +124,7 @@ const Login = () => {
     setErrors({});
   };
 
+  // Show / hide password
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
@@ -80,6 +141,13 @@ const Login = () => {
 
         {/* Login Form */}
         <form className="login-form" onSubmit={handleSubmit}>
+
+          {/* General Backend Error */}
+          {errors.general && (
+            <small className="error-message">
+              {errors.general}
+            </small>
+          )}
 
           {/* Email */}
           <div className="form-group">
