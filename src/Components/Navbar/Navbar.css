@@ -2,7 +2,7 @@
    General Styling
    ============================== */
 
-   * {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -94,7 +94,7 @@ nav {
 
 
 /* ==============================
-   Sign Up / Login Buttons
+   Buttons
    ============================== */
 
 .btn1 {
@@ -117,6 +117,40 @@ nav {
 
 .btn1:hover {
     background-color: #3685fb;
+    color: white;
+}
+
+
+/* ==============================
+   Username
+   ============================== */
+
+.user-name {
+    color: #0d213f;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    padding: 10px 8px;
+}
+
+
+/* ==============================
+   Logout Button
+   ============================== */
+
+.logout-btn {
+    border: 1px solid #3685fb;
+
+    background-color: white;
+
+    color: #3685fb;
+}
+
+.logout-btn:hover {
+    background-color: #3685fb;
+
     color: white;
 }
 
@@ -178,11 +212,21 @@ nav {
 
     .nav__links .link {
         width: 100%;
+
         text-align: center;
     }
 
     .nav__links .link a {
         width: 100%;
+
         padding: 14px;
+    }
+
+    .user-name {
+        padding: 14px;
+    }
+
+    .logout-btn {
+        margin-bottom: 5px;
     }
 }

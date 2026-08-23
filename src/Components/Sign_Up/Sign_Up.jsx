@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { API_URL } from "../../config";
 import "./Sign_Up.css";
 
 const Sign_Up = () => {
@@ -12,6 +13,9 @@ const Sign_Up = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [showerr, setShowerr] = useState("");
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +29,8 @@ const Sign_Up = () => {
       ...errors,
       [name]: "",
     });
+
+    setShowerr("");
   };
 
   const validateForm = () => {
@@ -50,7 +56,9 @@ const Sign_Up = () => {
     // Email validation
     if (!formData.email) {
       newErrors.email = "Email is required.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+    ) {
       newErrors.email = "Please enter a valid email address.";
     }
 
@@ -58,7 +66,8 @@ const Sign_Up = () => {
     if (!formData.password) {
       newErrors.password = "Password is required.";
     } else if (formData.password.length < 8) {
-      newErrors.password = "Password must be at least 8 characters.";
+      newErrors.password =
+        "Password must be at least 8 characters.";
     }
 
     setErrors(newErrors);
@@ -66,11 +75,63 @@ const Sign_Up = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const register = async (e) => {
     e.preventDefault();
 
-    if (validateForm()) {
-      alert("Sign Up successful!");
+    // First perform frontend validation
+    if (!validateForm()) {
+      return;
+    }
+
+    setShowerr("");
+
+    try {
+      const response = await fetch(
+        `${API_URL}/api/auth/register`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            role: formData.role,
+            name: formData.name,
+            email: formData.email,
+            password: formData.password,
+            phone: formData.phone,
+          }),
+        }
+      );
+
+      const json = await response.json();
+
+      if (json.authtoken) {
+        // Store authentication and user information
+        sessionStorage.setItem("auth-token", json.authtoken);
+        sessionStorage.setItem("name", formData.name);
+        sessionStorage.setItem("phone", formData.phone);
+        sessionStorage.setItem("email", formData.email);
+
+        // Redirect to Home page
+        navigate("/");
+        window.location.reload();
+      } else {
+        // Display backend validation errors
+        if (json.errors) {
+          for (const error of json.errors) {
+            setShowerr(error.msg);
+          }
+        } else {
+          setShowerr(
+            json.error || "Registration failed. Please try again."
+          );
+        }
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      setShowerr(
+        "Unable to connect to the server. Please try again."
+      );
     }
   };
 
@@ -84,6 +145,7 @@ const Sign_Up = () => {
     });
 
     setErrors({});
+    setShowerr("");
   };
 
   return (
@@ -96,8 +158,25 @@ const Sign_Up = () => {
           <p>Create your StayHealthy account</p>
         </div>
 
+        {/* Backend error */}
+        {showerr && (
+          <div
+            className="err"
+            style={{
+              color: "red",
+              textAlign: "center",
+              marginBottom: "15px",
+            }}
+          >
+            {showerr}
+          </div>
+        )}
+
         {/* Sign Up Form */}
-        <form className="signup-form" onSubmit={handleSubmit}>
+        <form
+          className="signup-form"
+          onSubmit={register}
+        >
 
           {/* Role */}
           <div className="form-group">
@@ -211,7 +290,11 @@ const Sign_Up = () => {
 
           {/* Buttons */}
           <div className="button-group">
-            <button type="submit" className="submit-btn">
+
+            <button
+              type="submit"
+              className="submit-btn"
+            >
               Sign Up
             </button>
 
@@ -222,6 +305,7 @@ const Sign_Up = () => {
             >
               Reset
             </button>
+
           </div>
 
         </form>
@@ -229,7 +313,9 @@ const Sign_Up = () => {
         {/* Login Link */}
         <p className="login-text">
           Already have an account?{" "}
-          <Link to="/login">Login</Link>
+          <Link to="/login">
+            Login
+          </Link>
         </p>
 
       </div>
