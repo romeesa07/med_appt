@@ -1,0 +1,73 @@
+.searchpage-container {
+    width: 100%;
+    padding: 0;
+  }
+  
+  /* Doctor results section */
+  .search-results-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px 40px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  /* "4 doctors are available" */
+  .search-results-container h2 {
+    margin: 10px 0 4px;
+    font-size: 22px;
+    color: #414146;
+    text-align: center;
+  }
+  
+  /* Subtitle */
+  .search-results-container h3 {
+    margin: 0 0 16px;
+    font-size: 15px;
+    font-weight: normal;
+    color: #666;
+    text-align: center;
+  }
+  
+  /* Doctor cards */
+  .doctor-cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    width: 100%;
+    margin-top: -250px;
+    align-items: start;
+    justify-content: center;
+  }
+  
+  /* Keep cards compact */
+  .doctor-cards-container > * {
+    width: 240px;
+    max-width: 100%;
+  }
+  
+  /* Tablet */
+  @media (max-width: 1000px) {
+    .doctor-cards-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Small tablet */
+  @media (max-width: 750px) {
+    .doctor-cards-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 500px) {
+    .doctor-cards-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .search-results-container {
+      padding: 0 12px 30px;
+    }
+  }
