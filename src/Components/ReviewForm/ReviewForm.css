@@ -1,43 +1,185 @@
 .review-form-container {
-  width: 100%;
-  max-width: 500px;
-  margin: 30px auto;
-  padding: 25px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.review-doctor-info h2 {
-  margin-bottom: 20px;
-  color: #0d213f;
-  font-size: 22px;
-}
-
-.review-doctor-info p {
-  margin: 8px 0;
-  color: #555;
-  font-size: 15px;
-}
-
-.review-doctor-info strong {
-  color: #0d213f;
-}
-
-.write-review-btn {
-  margin-top: 20px;
-  padding: 10px 22px;
-  border: none;
-  border-radius: 6px;
-  background-color: #3685fb;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.write-review-btn:hover {
-  background-color: #0056b3;
-}
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .review-doctor-info h2 {
+    margin-bottom: 20px;
+    color: #0d213f;
+    font-size: 22px;
+  }
+  
+  .review-doctor-info p {
+    margin: 8px 0;
+    color: #555;
+    font-size: 15px;
+  }
+  
+  .review-doctor-info strong {
+    color: #0d213f;
+  }
+  
+  /* Click Here button */
+  .write-review-btn {
+    margin-top: 20px;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    background-color: #3685fb;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .write-review-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Feedback form */
+  .feedback-form {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .feedback-form h3 {
+    text-align: center;
+    color: #0d213f;
+    margin-bottom: 20px;
+  }
+  
+  .review-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .review-form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .review-form-group input,
+  .review-form-group textarea {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .review-form-group textarea {
+    resize: vertical;
+  }
+  
+  /* Warning */
+  .review-warning {
+    padding: 8px;
+    margin-bottom: 15px;
+    color: #dc3545;
+    background-color: #fff0f0;
+    border-radius: 5px;
+    font-size: 13px;
+  }
+  
+  /* Rating */
+  .rating-section {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .rating-section > label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .rating-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .rating-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #3685fb;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #3685fb;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .rating-btn:hover,
+  .rating-btn.selected {
+    background-color: #3685fb;
+    color: #ffffff;
+  }
+  
+  .rating-text {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #666;
+  }
+  
+  /* Submit */
+  .submit-review-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #28a745;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .submit-review-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* Submitted review */
+  .submitted-review {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 8px;
+    background-color: #f5f9ff;
+    text-align: left;
+  }
+  
+  .submitted-review h3 {
+    margin-top: 0;
+    color: #0d213f;
+    text-align: center;
+  }
+  
+  .submitted-review p {
+    margin: 8px 0;
+    color: #555;
+  }
+  
+  /* Disabled button after submission */
+  .review-submitted-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #999;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
