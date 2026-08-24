@@ -139,18 +139,16 @@ const Sign_Up = () => {
         navigate("/");
         window.location.reload();
       } else {
-        // Display backend validation errors
-        if (json.errors) {
-          for (const error of json.errors) {
-            setShowerr(error.msg);
-          }
-        } else {
-          setShowerr(
-            json.error ||
-              "Registration failed. Please try again."
-          );
-        }
-      }
+  // Display backend validation errors
+  if (json.error && Array.isArray(json.error)) {
+    setShowerr(json.error[0].msg);
+  } else {
+    setShowerr(
+      json.error ||
+        "Registration failed. Please try again."
+    );
+  }
+}
     } catch (error) {
       console.error(
         "Registration error:",
