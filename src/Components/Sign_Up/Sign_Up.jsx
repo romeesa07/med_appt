@@ -50,7 +50,8 @@ const Sign_Up = () => {
     if (!formData.phone) {
       newErrors.phone = "Phone number is required.";
     } else if (!/^\d{10}$/.test(formData.phone)) {
-      newErrors.phone = "Phone number must contain exactly 10 digits.";
+      newErrors.phone =
+        "Phone number must contain exactly 10 digits.";
     }
 
     // Email validation
@@ -59,7 +60,8 @@ const Sign_Up = () => {
     } else if (
       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
     ) {
-      newErrors.email = "Please enter a valid email address.";
+      newErrors.email =
+        "Please enter a valid email address.";
     }
 
     // Password validation
@@ -107,10 +109,31 @@ const Sign_Up = () => {
 
       if (json.authtoken) {
         // Store authentication and user information
-        sessionStorage.setItem("auth-token", json.authtoken);
-        sessionStorage.setItem("name", formData.name);
-        sessionStorage.setItem("phone", formData.phone);
-        sessionStorage.setItem("email", formData.email);
+        sessionStorage.setItem(
+          "auth-token",
+          json.authtoken
+        );
+
+        sessionStorage.setItem(
+          "name",
+          formData.name
+        );
+
+        sessionStorage.setItem(
+          "phone",
+          formData.phone
+        );
+
+        sessionStorage.setItem(
+          "email",
+          formData.email
+        );
+
+        // Store user's role for the ProfileCard
+        sessionStorage.setItem(
+          "role",
+          formData.role
+        );
 
         // Redirect to Home page
         navigate("/");
@@ -123,12 +146,17 @@ const Sign_Up = () => {
           }
         } else {
           setShowerr(
-            json.error || "Registration failed. Please try again."
+            json.error ||
+              "Registration failed. Please try again."
           );
         }
       }
     } catch (error) {
-      console.error("Registration error:", error);
+      console.error(
+        "Registration error:",
+        error
+      );
+
       setShowerr(
         "Unable to connect to the server. Please try again."
       );
@@ -155,7 +183,10 @@ const Sign_Up = () => {
         {/* Heading */}
         <div className="signup-header">
           <h1>Sign Up</h1>
-          <p>Create your StayHealthy account</p>
+
+          <p>
+            Create your StayHealthy account
+          </p>
         </div>
 
         {/* Backend error */}
@@ -180,7 +211,9 @@ const Sign_Up = () => {
 
           {/* Role */}
           <div className="form-group">
-            <label htmlFor="role">Role</label>
+            <label htmlFor="role">
+              Role
+            </label>
 
             <select
               id="role"
@@ -188,13 +221,24 @@ const Sign_Up = () => {
               value={formData.role}
               onChange={handleChange}
             >
-              <option value="" disabled>
+              <option
+                value=""
+                disabled
+              >
                 Select your role
               </option>
 
-              <option value="patient">Patient</option>
-              <option value="doctor">Doctor</option>
-              <option value="admin">Admin</option>
+              <option value="patient">
+                Patient
+              </option>
+
+              <option value="doctor">
+                Doctor
+              </option>
+
+              <option value="admin">
+                Admin
+              </option>
             </select>
 
             {errors.role && (
@@ -206,7 +250,9 @@ const Sign_Up = () => {
 
           {/* Name */}
           <div className="form-group">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">
+              Name
+            </label>
 
             <input
               type="text"
@@ -226,7 +272,9 @@ const Sign_Up = () => {
 
           {/* Phone */}
           <div className="form-group">
-            <label htmlFor="phone">Phone Number</label>
+            <label htmlFor="phone">
+              Phone Number
+            </label>
 
             <input
               type="tel"
@@ -246,7 +294,9 @@ const Sign_Up = () => {
 
           {/* Email */}
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">
+              Email
+            </label>
 
             <input
               type="email"
@@ -266,7 +316,9 @@ const Sign_Up = () => {
 
           {/* Password */}
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">
+              Password
+            </label>
 
             <input
               type="password"
@@ -313,6 +365,7 @@ const Sign_Up = () => {
         {/* Login Link */}
         <p className="login-text">
           Already have an account?{" "}
+
           <Link to="/login">
             Login
           </Link>

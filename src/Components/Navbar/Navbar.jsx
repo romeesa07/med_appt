@@ -4,6 +4,8 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+
   const navigate = useNavigate();
 
   // Get logged-in user information from sessionStorage
@@ -26,8 +28,10 @@ const Navbar = () => {
     sessionStorage.removeItem("name");
     sessionStorage.removeItem("phone");
     sessionStorage.removeItem("email");
+    sessionStorage.removeItem("role");
 
     setMenuOpen(false);
+    setProfileOpen(false);
 
     // Redirect to home page
     navigate("/");
@@ -116,22 +120,40 @@ const Navbar = () => {
           </>
         )}
 
-        {/* Show username and Logout when user IS logged in */}
+        {/* Show profile dropdown when user IS logged in */}
         {authToken && (
-          <>
-            <li className="link user-name">
+          <li className="link profile-dropdown">
+            <button
+              className="profile-dropdown-btn"
+              onClick={() => setProfileOpen(!profileOpen)}
+            >
               Welcome, {displayName}
-            </li>
+              <span className="dropdown-arrow">
+                ▼
+              </span>
+            </button>
 
-            <li className="link">
-              <button
-                className="btn1 logout-btn"
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
-            </li>
-          </>
+            {profileOpen && (
+              <div className="profile-dropdown-menu">
+                <Link
+                  to="/profile"
+                  onClick={() => {
+                    setProfileOpen(false);
+                    setMenuOpen(false);
+                  }}
+                >
+                  Profile
+                </Link>
+
+                <button
+                  className="dropdown-logout"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </li>
         )}
       </ul>
     </nav>
