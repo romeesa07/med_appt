@@ -10,6 +10,7 @@ import BookingConsultation from "./Components/BookingConsultation";
 import Notification from "./Components/Notification/Notification";
 import ReviewFormApp from "./Components/ReviewFormApp/ReviewFormApp";
 import ProfileCard from "./Components/ProfileCard/ProfileCard";
+import ReportsLayout from "./Components/ReportsLayout/ReportsLayout";
 
 function App() {
   return (
@@ -20,25 +21,57 @@ function App() {
 
         <Notification>
 
-        <Routes>
-          {/* Home */}
-          <Route path="/" element={<Landing_Page />} />
+          <Routes>
 
-          {/* Sign Up */}
-          <Route path="/signup" element={<Sign_Up />} />
+            {/* Home */}
+            <Route
+              path="/"
+              element={<Landing_Page />}
+            />
 
-          {/* Login */}
-          <Route path="/login" element={<Login />} />
+            {/* Sign Up */}
+            <Route
+              path="/signup"
+              element={<Sign_Up />}
+            />
 
-          <Route path="/instant-consultation" element={<InstantConsultation />} />
+            {/* Login */}
+            <Route
+              path="/login"
+              element={<Login />}
+            />
 
-          <Route path="/find-doctor" element={<BookingConsultation />} />
-          
-          <Route path="/reviews" element={<ReviewFormApp />} />
+            {/* Instant Consultation */}
+            <Route
+              path="/instant-consultation"
+              element={<InstantConsultation />}
+            />
 
-          <Route path="/profile" element={<ProfileCard />} />
-          
-        </Routes>
+            {/* Find Doctor / Appointments */}
+            <Route
+              path="/find-doctor"
+              element={<BookingConsultation />}
+            />
+
+            {/* Reviews */}
+            <Route
+              path="/reviews"
+              element={<ReviewFormApp />}
+            />
+
+            {/* Profile */}
+            <Route
+              path="/profile"
+              element={<ProfileCard />}
+            />
+
+            {/* Reports */}
+            <Route
+              path="/reports"
+              element={<ReportsLayout />}
+            />
+
+          </Routes>
 
         </Notification>
 

@@ -134,25 +134,37 @@ const Navbar = () => {
             </button>
 
             {profileOpen && (
-              <div className="profile-dropdown-menu">
-                <Link
-                  to="/profile"
-                  onClick={() => {
-                    setProfileOpen(false);
-                    setMenuOpen(false);
-                  }}
-                >
-                  Profile
-                </Link>
+  <div className="profile-dropdown-menu">
 
-                <button
-                  className="dropdown-logout"
-                  onClick={handleLogout}
-                >
-                  Logout
-                </button>
-              </div>
-            )}
+    <Link
+      to="/profile"
+      onClick={() => {
+        setProfileOpen(false);
+        setMenuOpen(false);
+      }}
+    >
+      Profile
+    </Link>
+
+    <Link
+      to="/reports"
+      onClick={() => {
+        setProfileOpen(false);
+        setMenuOpen(false);
+      }}
+    >
+      Your Reports
+    </Link>
+
+    <button
+      className="dropdown-logout"
+      onClick={handleLogout}
+    >
+      Logout
+    </button>
+
+  </div>
+)}
           </li>
         )}
       </ul>
