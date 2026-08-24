@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./ReportsLayout.css";
 
@@ -19,10 +20,13 @@ const ReportsLayout = () => {
                 <th>Date</th>
                 <th>Doctor</th>
                 <th>Status</th>
+                <th>Actions</th>
               </tr>
             </thead>
 
             <tbody>
+
+              {/* Medical Consultation */}
               <tr>
                 <td>Medical Consultation</td>
                 <td>15 Aug 2026</td>
@@ -32,8 +36,27 @@ const ReportsLayout = () => {
                     Available
                   </span>
                 </td>
+                <td>
+                  <a
+                    href="/patient_report.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="report-view-btn"
+                  >
+                    View
+                  </a>
+
+                  <a
+                    href="/patient_report.pdf"
+                    download="patient_report.pdf"
+                    className="report-download-btn"
+                  >
+                    Download
+                  </a>
+                </td>
               </tr>
 
+              {/* General Checkup */}
               <tr>
                 <td>General Checkup</td>
                 <td>10 Aug 2026</td>
@@ -43,8 +66,27 @@ const ReportsLayout = () => {
                     Available
                   </span>
                 </td>
+                <td>
+                  <a
+                    href="/patient_report.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="report-view-btn"
+                  >
+                    View
+                  </a>
+
+                  <a
+                    href="/patient_report.pdf"
+                    download="patient_report.pdf"
+                    className="report-download-btn"
+                  >
+                    Download
+                  </a>
+                </td>
               </tr>
 
+              {/* Blood Test Report */}
               <tr>
                 <td>Blood Test Report</td>
                 <td>05 Aug 2026</td>
@@ -54,7 +96,26 @@ const ReportsLayout = () => {
                     Available
                   </span>
                 </td>
+                <td>
+                  <a
+                    href="/patient_report.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="report-view-btn"
+                  >
+                    View
+                  </a>
+
+                  <a
+                    href="/patient_report.pdf"
+                    download="patient_report.pdf"
+                    className="report-download-btn"
+                  >
+                    Download
+                  </a>
+                </td>
               </tr>
+
             </tbody>
           </table>
         </div>
