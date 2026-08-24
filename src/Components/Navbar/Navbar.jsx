@@ -72,10 +72,20 @@ const Navbar = () => {
         {/* Appointments */}
         <li className="link">
           <Link
-            to="#"
+            to="/find-doctor"
             onClick={() => setMenuOpen(false)}
           >
             Appointments
+          </Link>
+        </li>
+
+        {/* Reviews */}
+        <li className="link">
+          <Link
+            to="/reviews"
+            onClick={() => setMenuOpen(false)}
+          >
+            Reviews
           </Link>
         </li>
 
