@@ -58,13 +58,14 @@ router.post('/register',[
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(req.body.password, salt);
         
-        const newUser =  await UserSchema.create({
-            email: req.body.email,
-            name: req.body.name,
-            password: hash,
-            phone: req.body.phone,
-            createdAt: Date(),
-        });
+        const newUser = await UserSchema.create({
+    email: req.body.email,
+    name: req.body.name,
+    password: hash,
+    phone: req.body.phone,
+    role: req.body.role,
+    createdAt: Date(),
+});
 
         const payload = {
             user: {
