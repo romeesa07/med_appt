@@ -1,0 +1,99 @@
+.doctor-card-container {
+  width: 100%;
+  height: fit-content;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  vertical-align: top;
+}
+
+.doctor-card-details-container {
+  padding: 12px 14px 8px;
+}
+
+.doctor-card-profile-image-container {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.doctor-card-profile-image-container svg {
+  width: 48px;
+  height: 48px;
+  color: #555;
+}
+
+.doctor-card-details {
+  text-align: center;
+}
+
+.doctor-card-detail-name {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.doctor-card-detail-speciality {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.doctor-card-detail-experience {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.doctor-card-detail-consultationfees {
+  font-size: 12px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #444;
+}
+
+.doctor-card-book-button-container {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.book-appointment-btn {
+  background-color: #87b6e9;
+  color: #100101;
+  border: none;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  width: auto;
+}
+
+.book-appointment-btn:hover {
+  background-color: #031427;
+}
+
+.book-appointment-btn div:first-child {
+  font-weight: 600;
+}
+
+.book-appointment-btn div:nth-child(2) {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 3px;
+}
+
+.book-appointment-btn:hover {
+  background-color: #0056b3;
+}
+
+.no-booking-fee {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #28a745;
+}
