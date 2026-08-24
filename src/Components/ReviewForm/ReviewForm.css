@@ -1,0 +1,43 @@
+.review-form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.review-doctor-info h2 {
+  margin-bottom: 20px;
+  color: #0d213f;
+  font-size: 22px;
+}
+
+.review-doctor-info p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 15px;
+}
+
+.review-doctor-info strong {
+  color: #0d213f;
+}
+
+.write-review-btn {
+  margin-top: 20px;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3685fb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.write-review-btn:hover {
+  background-color: #0056b3;
+}
