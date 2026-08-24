@@ -1,14 +1,14 @@
 .review-form-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 30px auto;
-    padding: 25px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    text-align: center;
-    box-sizing: border-box;
-  }
+  width: 100%;
+  max-width: 500px;
+  margin: 100px auto 30px;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  box-sizing: border-box;
+}
   
   .review-doctor-info h2 {
     margin-bottom: 20px;
@@ -66,15 +66,24 @@
     color: #333;
   }
   
-  .review-form-group input,
-  .review-form-group textarea {
-    width: 100%;
-    padding: 9px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 14px;
-  }
+.review-form-group input,
+.review-form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #3685fb;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #0d213f;
+  outline: none;
+}
+
+.review-form-group input:focus,
+.review-form-group textarea:focus {
+  border-color: #0d213f;
+  box-shadow: 0 0 0 2px rgba(54, 133, 251, 0.15);
+}
   
   .review-form-group textarea {
     resize: vertical;
