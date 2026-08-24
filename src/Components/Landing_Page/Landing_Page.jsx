@@ -1,7 +1,21 @@
+
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./LandingPage.css";
 
 const Landing_Page = () => {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    const authToken = sessionStorage.getItem("auth-token");
+
+    if (authToken) {
+      navigate("/find-doctor");
+    } else {
+      navigate("/signup");
+    }
+  };
+
   return (
     <section className="hero-section">
       <div>
@@ -27,9 +41,12 @@ const Landing_Page = () => {
             healthcare professionals and take control of your well-being.
           </h4>
 
-          <a href="#services">
-            <button className="button">Get Started</button>
-          </a>
+          <button
+            className="button"
+            onClick={handleGetStarted}
+          >
+            Get Started
+          </button>
         </div>
       </div>
     </section>
