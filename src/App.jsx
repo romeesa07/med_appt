@@ -7,6 +7,7 @@ import Sign_Up from "./Components/Sign_Up/Sign_Up";
 import Login from "./Components/Login/Login";
 import InstantConsultation from "./Components/InstantConsultation/InstantConsultation";
 import BookingConsultation from "./Components/BookingConsultation";
+import Notification from "./Components/Notification/Notification";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
       <BrowserRouter>
 
         <Navbar />
+
+        <Notification />
 
         <Routes>
           {/* Home */}

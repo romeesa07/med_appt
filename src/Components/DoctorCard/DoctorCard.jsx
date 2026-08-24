@@ -12,23 +12,40 @@ const DoctorCard = ({
   const [appointment, setAppointment] = useState(null);
 
   const handleAppointmentSubmit = (appointmentData) => {
-    const newAppointment = {
-      ...appointmentData,
-      doctorName: name,
-      doctorSpeciality: speciality,
-    };
+  console.log('Appointment booked:', appointmentData);
 
-    setAppointment(newAppointment);
-    setShowAppointmentForm(false);
+  // Store doctor information
+  localStorage.setItem(
+    'doctorData',
+    JSON.stringify({
+      name: name,
+      speciality: speciality,
+      experience: experience,
+      ratings: ratings
+    })
+  );
 
-    alert(
-      `Appointment booked successfully with ${name}!`
-    );
-  };
+  // Store appointment information using doctor's name
+  localStorage.setItem(
+    name,
+    JSON.stringify(appointmentData)
+  );
 
-  const handleCancelAppointment = () => {
+  alert(
+    `Appointment booked successfully with ${name}!`
+  );
+  
+  setAppointment(appointmentData);
+  setShowAppointmentForm(false);
+};
+
+const handleCancelAppointment = () => {
     setAppointment(null);
-
+  
+    localStorage.removeItem(name);
+  
+    localStorage.removeItem('doctorData');
+  
     alert(
       `Appointment with ${name} has been cancelled.`
     );
