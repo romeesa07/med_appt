@@ -16,7 +16,7 @@ function App() {
 
         <Navbar />
 
-        <Notification />
+        <Notification>
 
         <Routes>
           {/* Home */}
@@ -33,6 +33,8 @@ function App() {
           <Route path="/find-doctor" element={<BookingConsultation />} />
           
         </Routes>
+
+        </Notification>
 
       </BrowserRouter>
     </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Notification.css';
 
-const Notification = () => {
+const Notification = ({ children }) => {
   const [showNotification, setShowNotification] = useState(false);
   const [appointmentData, setAppointmentData] = useState(null);
 
@@ -38,37 +38,45 @@ const Notification = () => {
     return () => clearInterval(interval);
   }, []);
 
-  if (!showNotification || !appointmentData) {
-    return null;
-  }
-
   return (
-    <div className="notification-container">
-      <div className="notification-card">
+    <div>
 
-        <h3>Appointment Details</h3>
+      {/* Display application pages */}
+      {children}
 
-        <p>
-          <strong>Doctor:</strong>{' '}
-          {appointmentData.doctorName || 'Doctor'}
-        </p>
+      {/* Display appointment notification */}
+      {showNotification && appointmentData && (
+        <div className="notification-container">
 
-        <p>
-          <strong>Patient:</strong>{' '}
-          {appointmentData.name}
-        </p>
+          <div className="notification-card">
 
-        <p>
-          <strong>Date:</strong>{' '}
-          {appointmentData.date}
-        </p>
+            <h3>Appointment Details</h3>
 
-        <p>
-          <strong>Time:</strong>{' '}
-          {appointmentData.time}
-        </p>
+            <p>
+              <strong>Doctor:</strong>{' '}
+              {appointmentData.doctorName || 'Doctor'}
+            </p>
 
-      </div>
+            <p>
+              <strong>Patient:</strong>{' '}
+              {appointmentData.name}
+            </p>
+
+            <p>
+              <strong>Date:</strong>{' '}
+              {appointmentData.date}
+            </p>
+
+            <p>
+              <strong>Time:</strong>{' '}
+              {appointmentData.time}
+            </p>
+
+          </div>
+
+        </div>
+      )}
+
     </div>
   );
 };
