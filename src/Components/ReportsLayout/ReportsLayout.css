@@ -1,10 +1,7 @@
 .reports-page {
     min-height: calc(100vh - 70px);
 
-    padding-top: 100px;
-    padding-bottom: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 100px 30px 50px;
 
     display: flex;
     justify-content: center;
@@ -12,10 +9,9 @@
 
     background-color: #0a1a31;
 }
-
 .reports-card {
     width: 100%;
-    max-width: 950px;
+    max-width: 1000px;
 
     padding: 35px;
 
@@ -23,9 +19,8 @@
 
     border-radius: 14px;
 
-    box-shadow: 0 6px 20px rgba(13, 33, 63, 0.15);
+    box-shadow: 0 8px 25px rgba(13, 33, 63, 0.2);
 }
-
 .reports-header {
     text-align: center;
 
@@ -38,6 +33,8 @@
     color: #0d213f;
 
     font-size: 28px;
+
+    font-weight: 700;
 }
 
 .reports-header p {
@@ -50,7 +47,10 @@
     width: 100%;
 
     overflow-x: auto;
+
+    border-radius: 8px;
 }
+
 
 .reports-table {
     width: 100%;
@@ -60,6 +60,7 @@
     text-align: left;
 }
 
+
 .reports-table th {
     padding: 15px;
 
@@ -67,8 +68,13 @@
 
     color: #ffffff;
 
-    font-size: 15px;
+    font-size: 14px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
 }
+
 
 .reports-table td {
     padding: 15px;
@@ -78,11 +84,30 @@
     color: #555;
 
     font-size: 14px;
+
+    vertical-align: middle;
 }
 
-.reports-table tbody tr:hover {
-    background-color: #f5f8fc;
+
+/* Alternate Rows */
+
+.reports-table tbody tr:nth-child(even) {
+    background-color: #f8faff;
 }
+
+
+/* Hover Effect */
+
+.reports-table tbody tr:hover {
+    background-color: #eef5ff;
+
+    transition: 0.2s ease;
+}
+
+
+/* ==============================
+   Report Status
+   ============================== */
 
 .report-status {
     display: inline-block;
@@ -98,10 +123,80 @@
     font-size: 13px;
 
     font-weight: 600;
+
+    white-space: nowrap;
 }
 
 
-/* Responsive Design */
+/* ==============================
+   View Button
+   ============================== */
+
+.report-view-btn {
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    margin: 3px;
+
+    border-radius: 5px;
+
+    background-color: #3685fb;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+.report-view-btn:hover {
+    background-color: #0d213f;
+
+    color: #ffffff;
+}
+
+
+/* ==============================
+   Download Button
+   ============================== */
+
+.report-download-btn {
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    margin: 3px;
+
+    border-radius: 5px;
+
+    background-color: #0d213f;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+.report-download-btn:hover {
+    background-color: #3685fb;
+
+    color: #ffffff;
+}
+
+
+/* ==============================
+   Responsive Design
+   ============================== */
 
 @media (max-width: 768px) {
 
@@ -111,10 +206,16 @@
 
     .reports-card {
         padding: 20px;
+
+        border-radius: 10px;
     }
 
     .reports-header h1 {
         font-size: 24px;
+    }
+
+    .reports-header p {
+        font-size: 14px;
     }
 
     .reports-table th,
@@ -123,32 +224,15 @@
 
         font-size: 13px;
     }
-}
-.report-view-btn,
-.report-download-btn {
-    display: inline-block;
-    padding: 7px 12px;
-    margin: 3px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 13px;
-    cursor: pointer;
-}
 
-.report-view-btn {
-    background-color: #3685fb;
-    color: white;
-}
+    .report-view-btn,
+    .report-download-btn {
+        display: block;
 
-.report-view-btn:hover {
-    background-color: #0d213f;
-}
+        width: 100%;
 
-.report-download-btn {
-    background-color: #0d213f;
-    color: white;
-}
+        margin: 4px 0;
 
-.report-download-btn:hover {
-    background-color: #3685fb;
+        text-align: center;
+    }
 }
